@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
+const config = require('config');
+const dbgr = require('debug')('development:mongoose');
 
 mongoose
-    .connect('mongodb+srv://nilesh147k:N!lesh123@socialmedia.kgk7zum.mongodb.net/scythe?retryWrites=true&w=majority&appName=SocialMedia')
+    .connect(`${config.get("MONGODB_URI")}/scythe`)
     .then(() => {
         console.log('connected');
     })
